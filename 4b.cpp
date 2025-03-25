@@ -1,26 +1,23 @@
 #include <iostream>
 int main()
 {
-    int d, sumTime, sumMinTime{0}, sumMaxTime{0};
+    int d, sumTime, sumMinTime = 0, sumMaxTime = 0;
     std::cin >> d;
     std::cin >> sumTime;
     
     int timeLimits[d][2]; //Array to store min and max time studied each day
-    
     for (int i = 0; i < d; i++)
     {
-        std::cin >> timeLimits[d][0];
-        sumMinTime += timeLimits[d][0];
-        std::cin >> timeLimits[d][1];
-        sumMaxTime += timeLimits[d][1];
+        std::cin >> timeLimits[i][0];
+        sumMinTime += timeLimits[i][0];
+        std::cin >> timeLimits[i][1];
+        sumMaxTime += timeLimits[i][1];
     }
-    std::cout << sumTime << std::endl << sumMaxTime;
     if (sumTime <= sumMaxTime && sumTime >= sumMinTime)
     {
-        std::cout << "YES";
-        int timeLeft = sumTime - sumMinTime; //sumTime now represents the remaining hours to be allocated
-        std::cout << timeLeft << std::endl;
-        /*
+        std::cout << "YES\n";
+        sumTime = sumTime - sumMinTime; //sumTime now represents the remaining hours to be allocated
+        
         int curIndex = 0;
         while (sumTime > 0)
         {
@@ -33,10 +30,9 @@ int main()
         }
         for(int i = 0; i < d; i++)
         {
-            //std::cout << timeLimits[i][0] << " ";
+            std::cout << timeLimits[i][0] << " ";
         }
-        //std::cout << std::endl;
-        */
+        std::cout << std::endl;
     }
     else
     {
